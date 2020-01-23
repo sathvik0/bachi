@@ -1,5 +1,3 @@
-#read comments properly
-
 import itertools
 
 #returns longest sequence of zeros in a list
@@ -7,6 +5,8 @@ def zeros(A):
     k = max(len(list(y)) for (c,y) in itertools.groupby(A) if c==0)
     return k
 
+match=[10**i+1 for i in range(2,50)]
+match=list(map(str,match))
 target=[]#empty list
 #creating new column with 0 and 1
 df['new']=[0 if df['feedback']=='no' else 1 for i in range(len(df))]
@@ -16,10 +16,13 @@ unique_list=list(df['userid'].unique())
 for i in unique_list:
     df1=df[df['userid']==i]
     pattern=list(df1['new'])
-    if pattern[0]==1 and pattern[-1]==1:
-        val=zeros(pattern)
-        if val>=2:
-            target.append(i)#if yes in first and last and 2 no contineously,appends to list
-            
- print(target)
-    
+    pattern1=list(map(str,pattern))
+    pattern2=''.join(pattern1)
+    for h in match:
+        val=pattern2.find(h)
+        if val>=0:
+            target.append(i)
+        
+print(target)
+target1=list(set(target))
+print(target1)
