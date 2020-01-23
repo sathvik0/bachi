@@ -9,15 +9,15 @@ def zeros(A):
 
 target=[]#empty list
 #creating new column with 0 and 1
-df['new']=[0 if df['responce']=='no' else 1 for i in range(len(df))]
+df['new']=[0 if df['feedback']=='no' else 1 for i in range(len(df))]
 #taking unique list of names
-unique_list=list(df['name'].unique())
+unique_list=list(df['userid'].unique())
 #iterating over each name and checking conditions
 for i in unique_list:
-    df1=df[df['name']==i]
+    df1=df[df['userid']==i]
     pattern=list(df1['new'])
     if pattern[0]==1 and pattern[-1]==1:
-        val=zeros[pattern]
+        val=zeros(pattern)
         if val>=2:
             target.append(i)#if yes in first and last and 2 no contineously,appends to list
             
