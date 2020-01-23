@@ -18,7 +18,7 @@ for i in unique_list:
     pattern=list(df1['new'])
     if pattern[0]==1 and pattern[-1]==1:
         val=zeros[pattern]
-        if val>2:
+        if val>=2:
             target.append(i)#if yes in first and last and 2 no contineously,appends to list
             
  print(target)
