@@ -1,0 +1,22 @@
+#read comments properly
+
+import itertools
+
+#returns longest sequence of zeros in a list
+def zeros(A):
+    k = max(len(list(y)) for (c,y) in itertools.groupby(A) if c==0)
+    return k
+
+target=[]#empty list
+df['new']=[0 if df['responce']=='no' else 1 for i in range(len(df))]
+unique_list=list(df['name'].unique())
+for i in unique_list:
+    df1=df[df['name']==i]
+    pattern=list(df1['new'])
+    if pattern[0]==1 and pattern[-1]==1:
+        val=zeros[pattern]
+        if val>2:
+            target.append(i)#if yes in first and last and 2 no contineously,appends to list
+            
+ print(target)
+    
