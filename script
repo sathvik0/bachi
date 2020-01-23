@@ -8,8 +8,11 @@ def zeros(A):
     return k
 
 target=[]#empty list
+#creating new column with 0 and 1
 df['new']=[0 if df['responce']=='no' else 1 for i in range(len(df))]
+#taking unique list of names
 unique_list=list(df['name'].unique())
+#iterating over each name and checking conditions
 for i in unique_list:
     df1=df[df['name']==i]
     pattern=list(df1['new'])
