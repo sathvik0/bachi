@@ -1,12 +1,10 @@
 import itertools
 
-#returns longest sequence of zeros in a list
-def zeros(A):
-    k = max(len(list(y)) for (c,y) in itertools.groupby(A) if c==0)
-    return k
-
+#creating 101,1001,10001.....square 10 and add 1,cube 10 and add1......10^4 +1.......
 match=[10**i+1 for i in range(2,50)]
+#converting each element i.e.,101,1001,10001...to '101','1001'.....int to string
 match=list(map(str,match))
+#creating empty list
 target=[]#empty list
 #creating new column with 0 and 1
 df['new']=[0 if df['feedback']=='no' else 1 for i in range(len(df))]
@@ -14,12 +12,18 @@ df['new']=[0 if df['feedback']=='no' else 1 for i in range(len(df))]
 unique_list=list(df['userid'].unique())
 #iterating over each name and checking conditions
 for i in unique_list:
+    #creates small dataframe with one user at a time
     df1=df[df['userid']==i]
+    #taking new column to a list
     pattern=list(df1['new'])
+    #converting each element i.e.,101100110001...to '1011001'.....int to string
     pattern1=list(map(str,pattern))
     pattern2=''.join(pattern1)
+    #iterating over match and checking if any of element in match is in pattern
     for h in match:
+        #find() functions returns a index if it finds a sub string else returns -1
         val=pattern2.find(h)
+        #only if it finds a 1001,100001.....etc it will append to target
         if val>=0:
             target.append(i)
         
